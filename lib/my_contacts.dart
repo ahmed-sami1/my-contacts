@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'widgets/social_media_icons.dart';
+import 'widgets/contacts_grid.dart';
 
 class MyContacts extends StatelessWidget {
   MyContacts({super.key});
@@ -9,8 +9,8 @@ class MyContacts extends StatelessWidget {
     'facebook.png': 'https://www.facebook.com/profile.php?id=100008466281338',
     'instagram.png': 'https://www.instagram.com/yasseradel1597/',
     'youtube.png': 'https://www.youtube.com/@DrHazemShouman',
-    'whatsapp.jpg':'https://wa.me/+201148800207',
-    'telegram.png':'https://telegram.me/+201148800207',
+    'whatsapp.jpg': 'https://wa.me/+201148800207',
+    'telegram.png': 'https://telegram.me/+201148800207',
     // 'linkedin.png',
     // 'twitter.png',
     // 'snapchat.png',
@@ -71,20 +71,7 @@ class MyContacts extends StatelessWidget {
               SizedBox(
                 height: 15,
               ),
-              GridView.builder(
-                itemCount: socialMedia.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3),
-                itemBuilder: (context, index) {
-                  return SocialMediaIcon(
-                    socialMedia: socialMedia.keys.toList()[index],
-                    socialMediaLinks: socialMedia.values.toList()[index],
-                  );
-                },
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                padding: EdgeInsets.all(20),
-              ),
+              ContactGrid(socialMedia: socialMedia),
             ],
           ),
         ),
