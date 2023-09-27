@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_application_1/start.dart';
 
 class SocialMediaIcon extends StatelessWidget {
-  String socialMedia;
-  String socialMediaLinks;
+  final String socialMedia;
+  final String socialMediaLinks;
   SocialMediaIcon({
     required this.socialMedia,
     required this.socialMediaLinks,
@@ -22,7 +22,10 @@ class SocialMediaIcon extends StatelessWidget {
           radius: 40,
         ),
         onTap: () {
-          launchUrl(Uri.parse(socialMediaLinks),mode: LaunchMode.externalApplication);
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) =>  StartSocialMedia(socialMedia: socialMedia, socialMediaLinks: socialMedia,)),
+          );
         },
       ),
     );
